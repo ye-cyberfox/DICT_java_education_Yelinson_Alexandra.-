@@ -18,8 +18,13 @@ public class ChatBot {
         int remainder5 = scanner.nextInt();
         int remainder7 = scanner.nextInt();
         int age = (remainder3*70+remainder5*21+remainder7*15)%105;
-        System.out.println("Я думаю, что тебе "+age+" лет :) Круто быть умным как я!");
-
+        System.out.println("Я думаю, что тебе "+age+" лет :) Круто быть умным, как я!");
+        //STAGE4
+        System.out.println("Ещё я хорошо считаю. Введи число и я легко посчитаю до него.");
+        int number = scanner.nextInt();
+        for (int i=0; i<number+1; i++){
+            System.out.println(i+"!");
+        }
 
 
     }
