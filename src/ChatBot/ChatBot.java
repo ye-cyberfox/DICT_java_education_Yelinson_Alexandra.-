@@ -10,8 +10,16 @@ public class ChatBot {
         //STAGE2
         System.out.println("Давай познакомимся. Как тебя зовут?");
         Scanner scanner = new Scanner(System.in);
-        String user_name = scanner.next();
+        String user_name = scanner.nextLine();
         System.out.println("Я рад знакомству, "+ user_name+"!");
+        //STAGE3
+        System.out.println("Я могу угадать сколько тебе лет.\nТолько напиши остаток от деления твоего возраста на 3, 5 и 7");
+        int remainder3 = scanner.nextInt();
+        int remainder5 = scanner.nextInt();
+        int remainder7 = scanner.nextInt();
+        int age = (remainder3*70+remainder5*21+remainder7*15)%105;
+        System.out.println("Я думаю, что тебе "+age+" лет :) Круто быть умным как я!");
+
 
 
     }
