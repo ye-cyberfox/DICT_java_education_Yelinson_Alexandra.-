@@ -1,30 +1,55 @@
 package CoffeeMachine;
 import java.util.*;
 
-
 public class CoffeeMachine {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int water = 200;
-        int milk= 50;
-        int beans= 15;
-        System.out.println("Write how many cups of coffee you will need:");
-        int cup = scan.nextInt();
-        System.out.println("Write how many ml of water the coffee machine has:");
-        int water_machine = scan.nextInt();
-        System.out.println("Write how many ml of milk the coffee machine has:");
-        int milk_machine = scan.nextInt();
-        System.out.println("Write how many grams of coffee beans the coffee machine has:");
-        int beans_machine = scan.nextInt();
-        int[] array= new int[] {water_machine / water, milk_machine / milk, beans_machine / beans};
-        var min_cup = Arrays.stream(array).min().getAsInt();
-
-        if (min_cup == cup){
-            System.out.println("Yes, I can make that amount of coffee");
-        } if (min_cup > cup) {
-            System.out.println("Yes, I can make that amount of coffee (and even " + (min_cup - cup) + " more than that)");
-        } else {
-            System.out.println("No, I can make only " + min_cup + " cups of coffee");
-        }
+        int water = 400;
+        int milk = 540;
+        int beans = 120;
+        int paper_cup = 9;
+        int money = 550;
+        System.out.println("The coffee machine has:\n" +
+                water + "ml of water\n" + milk + "ml of milk\n" +
+                beans + "g of coffee beans\n" + paper_cup + " of paper cups\n" + money + "₴ of money");
+        System.out.println("\nWrite action (buy, fill, take):");
+        String user = scan.nextLine();
+            if (user.equals("buy")) {
+                System.out.println("Choose your coffee: (1 - Espresso, 2 - Latte, 3 - Cappuccino) ");
+                int coffee = scan.nextInt();
+                if (coffee == 1) {
+                    water -= 250;
+                    beans -= 16;
+                    money += 4;
+                    paper_cup--;
+                } else if (coffee == 2) {
+                    water -= 350;
+                    milk -= 75;
+                    beans -= 20;
+                    money += 7;
+                    paper_cup--;
+                } else if (coffee == 3) {
+                    water -= 200;
+                    milk -= 100;
+                    beans -= 12;
+                    money += 6;
+                    paper_cup--;
+                }
+            } else if (user.equals("fill")) {
+                System.out.println("Write how many ml of water you want to add: ");
+                water += scan.nextInt();
+                System.out.println("Write how many ml of milk you want to add: ");
+                milk += scan.nextInt();
+                System.out.println("Write how many grams of coffee beans you want to add: ");
+                beans += scan.nextInt();
+                System.out.println("Write how many paper_cup you want to add: ");
+                paper_cup += scan.nextInt();
+            }
+            else if (user.equals("take")){
+                System.out.println("I gave you "+ money +"₴");
+                money -= money;
+            }
+        System.out.println("\nThe coffee machine has:\n" + water + "ml of water\n" +milk +
+                "ml of milk\n" +beans + "g of coffee beans\n" +paper_cup + " of paper cups\n" +money + "₴ of money");
     }
 }
