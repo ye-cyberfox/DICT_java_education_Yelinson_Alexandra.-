@@ -4,8 +4,22 @@ import java.util.*;
 public class hangman {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        Random random = new Random();
         System.out.println("Висилица!\nИгра скоро будет доступна...");
+        while (true){
+            System.out.print("Нажми \"играть\" для начала игры, \"выход\" для выхода: ");
+            String user = scan.nextLine();
+            if (user.equals("играть")){
+                game();
+            }
+            if (user.equals("выход")){
+                break;
+            }
+        }
+    }
+    public static void game (){
+        Scanner scan = new Scanner(System.in);
+        Random random = new Random();
+        System.out.println("Висилица!");
 
         ArrayList<String> someLetters = new ArrayList<>();
         String[] words = {"java", "python", "javascript", "kotlin"};
