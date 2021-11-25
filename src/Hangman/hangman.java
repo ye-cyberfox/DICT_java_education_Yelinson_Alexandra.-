@@ -21,10 +21,16 @@ public class hangman {
             if (health > 0) {
                 System.out.print(secret + "\nВведите букву:");
                 String user = scan.nextLine();
+                if (user.length()>1){
+                    System.out.println("Вы можете ввести только одну букву");
+                    continue;}
+                if(!user.matches("[a-z]")) {
+                    System.out.println("Введите строчную английскую букву, пожалуйста");
+                    continue;
+                }
                 if (variation.contains(user)) {
                     if (someLetters.contains(user)) {
                         System.out.println("Эта буква уже угадана");
-                        health--;
                     } else {
                         for (int i = 0; i < variation.length(); i++) {
                             if (symbol[i] == user.charAt(0)) {
@@ -33,7 +39,7 @@ public class hangman {
                         }
                     }
                     if (secret.toString().equals(variation)) {
-                        System.out.println(variation+"\nПоздравляю с победой!\nУвидимся на следующем этапе!");
+                        System.out.println(variation+"\nПоздравляю с победой!!!");
                         break;
                     }
                 } else {
