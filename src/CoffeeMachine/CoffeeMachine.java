@@ -2,8 +2,13 @@ package CoffeeMachine;
 import java.util.*;
 
 public class CoffeeMachine {
+    static Object Scan(String condition) {
+        Scanner scanner = new Scanner(System.in);
+        if ("Str".equals(condition)) {
+            return scanner.nextLine();
+        } else {return scanner.nextInt();}
+    }
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
         int water = 400;
         int milk = 540;
         int beans = 120;
@@ -14,11 +19,11 @@ public class CoffeeMachine {
                 beans + "g of coffee beans\n" + paper_cup + " of paper cups\n" + money + "₴ of money");
         while (true) {
             System.out.println("\nWrite action (buy, fill, take, remaining, exit):");
-            String user = scan.nextLine();
+            String user = (String) Scan("Str");
             if (user.equals("buy")) {
                 while (true) {
                     System.out.println("Choose your coffee: (1 - Espresso, 2 - Latte, 3 - Cappuccino, 4 - back to main menu>) ");
-                    int coffee = scan.nextInt();
+                    int coffee = (int) Scan("int");
                     if (coffee == 1) {
                         if (water < 250  || beans < 16 || paper_cup < 1) {
                             System.out.println("Sorry, not enough ingredients!");
@@ -59,13 +64,13 @@ public class CoffeeMachine {
                 }
             }if (user.equals("fill")) {
                 System.out.println("Write how many ml of water you want to add: ");
-                water += scan.nextInt();
+                water +=(int) Scan("int");
                 System.out.println("Write how many ml of milk you want to add: ");
-                milk += scan.nextInt();
+                milk += (int) Scan("int");
                 System.out.println("Write how many grams of coffee beans you want to add: ");
-                beans += scan.nextInt();
+                beans +=(int) Scan("int");
                 System.out.println("Write how many paper_cup you want to add: ");
-                paper_cup += scan.nextInt();
+                paper_cup += (int) Scan("int");
             } if (user.equals("take")) {
                 System.out.println("I gave you " + money + "₴");
                 money -= money;
