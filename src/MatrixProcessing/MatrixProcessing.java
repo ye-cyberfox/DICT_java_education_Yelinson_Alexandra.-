@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class MatrixProcessing {
     public static void main(String[] args) {
         matrixSum();
+        matrixMultiplicationConst();
     }
     public static void matrixSum(){
         Scanner in = new Scanner(System.in);
@@ -35,7 +36,25 @@ public class MatrixProcessing {
                 System.out.println("ERROR");
             }
         }
+    public static void matrixMultiplicationConst(){
+        Scanner scan = new Scanner(System.in);
+        int line_A = scan.nextInt();
+        int colume_A = scan.nextInt();
+        int[][] matrixA = new int[line_A][colume_A];
+        for (int i = 0; i < line_A; i++) {
+            for (int j = 0; j < colume_A; j++) {
+                matrixA[i][j] = scan.nextInt();
+            }
+        }
+        int constant = scan.nextInt();
+        for (int i = 0; i < line_A; i++) {
+            for (int j = 0; j < colume_A; j++) {
+                System.out.print(matrixA[i][j] * constant+ " ");
+            }
+            System.out.println();
+        }
     }
+}
 
 
 
